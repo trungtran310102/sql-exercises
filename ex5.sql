@@ -1,6 +1,6 @@
 ﻿-- Tạo bảng
-DROP TABLE IF EXISTS ex6
-CREATE TABLE ex6 (
+DROP TABLE IF EXISTS ex5
+CREATE TABLE ex5 (
     CustomerID INT PRIMARY KEY,
     CustomerName NVARCHAR(255),
     City NVARCHAR(255),
@@ -24,18 +24,18 @@ INSERT INTO ex6 (CustomerID, CustomerName, City, Street, SoNha) VALUES
 (13, N'Honda', N'Việt Nam', N'Đỗ Mười', 29),
 (14, N'Suzuki', N'Việt Nam', N'Trần Hưng Đạo', 18);
 
-SELECT * FROM ex6
+SELECT * FROM ex5
 
 -- Truy vấn dữ liệu
-SELECT * FROM ex6
+SELECT * FROM ex5
 WHERE CONCAT(City, Street, ' ', SoNha) IN (
   SELECT CONCAT(City, Street, ' ', SoNha)
-  FROM ex6
+  FROM ex5
   GROUP BY City, Street, SoNha
   HAVING COUNT(*) > 1
 );
 
-SELECT * FROM ex6
+SELECT * FROM ex5
 WHERE City IN (
   SELECT City
   FROM ex6
